@@ -1,0 +1,30 @@
+spring:
+  r2dbc:
+    url: r2dbc:mysql://localhost:3309/test
+    username: root
+    password: root
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  thymeleaf:
+    cache: false
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+        r2dbc: DEBUG
+        transaction: DEBUG
+
+PSP:
+  toss:
+    url: https://api.tosspayments.com
+    secretKey: ${TOSS_SECRET_KEY}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bindings
