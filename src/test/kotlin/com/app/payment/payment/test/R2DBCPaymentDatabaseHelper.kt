@@ -52,25 +52,11 @@ class R2DBCPaymentDatabaseHelper (
   }
 
   override fun clean(): Mono<Void> {
-    return deletePaymentOrderHistories()
-      .flatMap { deletePaymentOrders() }
-      .flatMap { deletePaymentEvents() }
-      .flatMap { deleteOutboxes() }
+    return deletePaymentEvents()
       .`as`(transactionalOperator::transactional)
       .then()
   }
 
-  private fun deletePaymentOrderHistories(): Mono<Long> {
-    return databaseClient.sql(DELETE_PAYMENT_ORDER_HISTORY_QUERY)
-      .fetch()
-      .rowsUpdated()
-  }
-
-  private fun deletePaymentOrders(): Mono<Long> {
-    return databaseClient.sql(DELETE_PAYMENT_ORDER_QUERY)
-      .fetch()
-      .rowsUpdated()
-  }
 
   private fun deletePaymentEvents(): Mono<Long> {
     return databaseClient.sql(DELETE_PAYMENT_EVENT_QUERY)
@@ -78,11 +64,6 @@ class R2DBCPaymentDatabaseHelper (
       .rowsUpdated()
   }
 
-  private fun deleteOutboxes(): Mono<Long> {
-    return databaseClient.sql(DELETE_OUTBOX_QUERY)
-      .fetch()
-      .rowsUpdated()
-  }
 
   companion object {
     val SELECT_PAYMENT_QUERY = """
@@ -93,18 +74,6 @@ class R2DBCPaymentDatabaseHelper (
 
     val DELETE_PAYMENT_EVENT_QUERY = """
       DELETE FROM payment_events
-    """.trimIndent()
-
-    val DELETE_PAYMENT_ORDER_QUERY = """
-      DELETE FROM payment_orders
-    """.trimIndent()
-
-    val DELETE_PAYMENT_ORDER_HISTORY_QUERY = """
-      DELETE FROM payment_order_histories
-    """.trimIndent()
-
-    val DELETE_OUTBOX_QUERY = """
-      DELETE FROM outboxes
     """.trimIndent()
   }
 }

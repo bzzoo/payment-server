@@ -1,4 +1,4 @@
-package com.example.paymentservice2.payment.test
+package com.app.payment.payment.test
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.test.context.TestConfiguration
@@ -11,7 +11,7 @@ import reactor.netty.resources.ConnectionProvider
 import java.util.Base64
 
 @TestConfiguration
-class PSPTestWebClientConfiguration (
+open class PSPTestWebClientConfiguration (
   @Value("\${PSP.toss.url}") private val baseUrl: String,
   @Value("\${PSP.toss.secretKey}") private val secretKey: String
 ) {

@@ -6,10 +6,10 @@ import org.springframework.r2dbc.core.DatabaseClient
 import org.springframework.transaction.reactive.TransactionalOperator
 
 @TestConfiguration
-class PaymentTestConfiguration {
+open class PaymentTestConfiguration {
 
   @Bean
-  fun paymentDatabaseHelper(databaseClient: DatabaseClient, transactionalOperator: TransactionalOperator): PaymentDatabaseHelper {
+  open fun paymentDatabaseHelper(databaseClient: DatabaseClient, transactionalOperator: TransactionalOperator): PaymentDatabaseHelper {
     return R2DBCPaymentDatabaseHelper(databaseClient, transactionalOperator)
   }
 }
