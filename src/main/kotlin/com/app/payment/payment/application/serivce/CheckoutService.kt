@@ -6,7 +6,7 @@ import com.app.payment.payment.application.port.`in`.CheckoutUseCase
 import com.app.payment.payment.application.port.out.LoadProductPort
 import com.app.payment.payment.application.port.out.SavePaymentPort
 import com.app.payment.payment.domain.*
-import com.example.paymentservice2.payment.application.port.`in`.CheckoutCommand
+import com.app.payment.payment.application.port.`in`.CheckoutCommand
 import reactor.core.publisher.Mono
 
 @UseCase

@@ -4,7 +4,7 @@ import com.app.payment.common.IdempotencyCreator
 import com.app.payment.common.WebAdapter
 import com.app.payment.payment.adapter.`in`.web.reqeust.CheckoutRequest
 import com.app.payment.payment.application.port.`in`.CheckoutUseCase
-import com.example.paymentservice2.payment.application.port.`in`.CheckoutCommand
+import com.app.payment.payment.application.port.`in`.CheckoutCommand
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping

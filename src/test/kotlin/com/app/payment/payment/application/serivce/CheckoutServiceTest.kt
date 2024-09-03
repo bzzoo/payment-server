@@ -3,7 +3,7 @@ package com.app.payment.payment.application.serivce
 import com.app.payment.payment.application.port.`in`.CheckoutUseCase
 import com.app.payment.payment.test.PaymentDatabaseHelper
 import com.app.payment.payment.test.PaymentTestConfiguration
-import com.example.paymentservice2.payment.application.port.`in`.CheckoutCommand
+import com.app.payment.payment.application.port.`in`.CheckoutCommand
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
